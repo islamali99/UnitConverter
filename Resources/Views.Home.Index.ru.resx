@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Конвертер единиц</value>
+  </data>
+  <data name="AppSubtitle" xml:space="preserve">
+    <value>Конвертация между различными единицами измерения</value>
+  </data>
+  <data name="LengthConverter" xml:space="preserve">
+    <value>Конвертер длины</value>
+  </data>
+  <data name="LengthDescription" xml:space="preserve">
+    <value>Конвертация миллиметров, сантиметров, метров, километров, дюймов, футов, ярдов и миль</value>
+  </data>
+  <data name="WeightConverter" xml:space="preserve">
+    <value>Конвертер веса</value>
+  </data>
+  <data name="WeightDescription" xml:space="preserve">
+    <value>Конвертация миллиграммов, граммов, килограммов, унций и фунтов</value>
+  </data>
+  <data name="TemperatureConverter" xml:space="preserve">
+    <value>Конвертер температуры</value>
+  </data>
+  <data name="TemperatureDescription" xml:space="preserve">
+    <value>Конвертация Цельсия, Фаренгейта и Кельвина</value>
+  </data>
+</root>

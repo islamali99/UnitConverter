@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Unit Converter</value>
+  </data>
+  <data name="AppSubtitle" xml:space="preserve">
+    <value>Convert between different units of measurement</value>
+  </data>
+  <data name="LengthConverter" xml:space="preserve">
+    <value>Length Converter</value>
+  </data>
+  <data name="LengthDescription" xml:space="preserve">
+    <value>Convert millimeters, centimeters, meters, kilometers, inches, feet, yards, and miles</value>
+  </data>
+  <data name="WeightConverter" xml:space="preserve">
+    <value>Weight Converter</value>
+  </data>
+  <data name="WeightDescription" xml:space="preserve">
+    <value>Convert milligrams, grams, kilograms, ounces, and pounds</value>
+  </data>
+  <data name="TemperatureConverter" xml:space="preserve">
+    <value>Temperature Converter</value>
+  </data>
+  <data name="TemperatureDescription" xml:space="preserve">
+    <value>Convert Celsius, Fahrenheit, and Kelvin</value>
+  </data>
+</root>

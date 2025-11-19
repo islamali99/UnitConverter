@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="AppTitle" xml:space="preserve">
+    <value>O'lchov birliklari konvertori</value>
+  </data>
+  <data name="AppSubtitle" xml:space="preserve">
+    <value>Turli o'lchov birliklari o'rtasida konvertatsiya qiling</value>
+  </data>
+  <data name="LengthConverter" xml:space="preserve">
+    <value>Uzunlik konvertori</value>
+  </data>
+  <data name="LengthDescription" xml:space="preserve">
+    <value>Millimetr, santimetr, metr, kilometr, dyuym, fut, yard va millarni konvertatsiya qiling</value>
+  </data>
+  <data name="WeightConverter" xml:space="preserve">
+    <value>Og'irlik konvertori</value>
+  </data>
+  <data name="WeightDescription" xml:space="preserve">
+    <value>Milligramm, gramm, kilogramm, untsiya va funtlarni konvertatsiya qiling</value>
+  </data>
+  <data name="TemperatureConverter" xml:space="preserve">
+    <value>Harorat konvertori</value>
+  </data>
+  <data name="TemperatureDescription" xml:space="preserve">
+    <value>Selsiy, Farengeyt va Kelvinni konvertatsiya qiling</value>
+  </data>
+</root>

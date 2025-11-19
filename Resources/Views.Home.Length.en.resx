@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="BackToHome" xml:space="preserve">
+    <value>← Back to Home</value>
+  </data>
+  <data name="LengthConverter" xml:space="preserve">
+    <value>Length Converter</value>
+  </data>
+  <data name="EnterValue" xml:space="preserve">
+    <value>Enter value:</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>From:</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>To:</value>
+  </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Convert</value>
+  </data>
+  <data name="Millimeter" xml:space="preserve">
+    <value>Millimeter</value>
+  </data>
+  <data name="Centimeter" xml:space="preserve">
+    <value>Centimeter</value>
+  </data>
+  <data name="Meter" xml:space="preserve">
+    <value>Meter</value>
+  </data>
+  <data name="Kilometer" xml:space="preserve">
+    <value>Kilometer</value>
+  </data>
+  <data name="Inch" xml:space="preserve">
+    <value>Inch</value>
+  </data>
+  <data name="Foot" xml:space="preserve">
+    <value>Foot</value>
+  </data>
+  <data name="Yard" xml:space="preserve">
+    <value>Yard</value>
+  </data>
+  <data name="Mile" xml:space="preserve">
+    <value>Mile</value>
+  </data>
+</root>
