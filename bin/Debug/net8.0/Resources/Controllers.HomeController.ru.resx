@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Конвертер единиц</value>
+  </data>
+  <data name="AppSubtitle" xml:space="preserve">
+    <value>Конвертация между различными единицами измерения</value>
+  </data>
+  <data name="LengthConverter" xml:space="preserve">
+    <value>Конвертер длины</value>
+  </data>
+  <data name="LengthDescription" xml:space="preserve">
+    <value>Конвертация миллиметров, сантиметров, метров, километров, дюймов, футов, ярдов и миль</value>
+  </data>
+  <data name="WeightConverter" xml:space="preserve">
+    <value>Конвертер веса</value>
+  </data>
+  <data name="WeightDescription" xml:space="preserve">
+    <value>Конвертация миллиграммов, граммов, килограммов, унций и фунтов</value>
+  </data>
+  <data name="TemperatureConverter" xml:space="preserve">
+    <value>Конвертер температуры</value>
+  </data>
+  <data name="TemperatureDescription" xml:space="preserve">
+    <value>Конвертация Цельсия, Фаренгейта и Кельвина</value>
+  </data>
+  <data name="BackToHome" xml:space="preserve">
+    <value>← Назад на главную</value>
+  </data>
+  <data name="EnterValue" xml:space="preserve">
+    <value>Введите значение:</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Из:</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>В:</value>
+  </data>
+  <data name="Convert" xml:space="preserve">
+    <value>Конвертировать</value>
+  </data>
+  <data name="Millimeter" xml:space="preserve">
+    <value>Миллиметр</value>
+  </data>
+  <data name="Centimeter" xml:space="preserve">
+    <value>Сантиметр</value>
+  </data>
+  <data name="Meter" xml:space="preserve">
+    <value>Метр</value>
+  </data>
+  <data name="Kilometer" xml:space="preserve">
+    <value>Километр</value>
+  </data>
+  <data name="Inch" xml:space="preserve">
+    <value>Дюйм</value>
+  </data>
+  <data name="Foot" xml:space="preserve">
+    <value>Фут</value>
+  </data>
+  <data name="Yard" xml:space="preserve">
+    <value>Ярд</value>
+  </data>
+  <data name="Mile" xml:space="preserve">
+    <value>Миля</value>
+  </data>
+  <data name="Milligram" xml:space="preserve">
+    <value>Миллиграмм</value>
+  </data>
+  <data name="Gram" xml:space="preserve">
+    <value>Грамм</value>
+  </data>
+  <data name="Kilogram" xml:space="preserve">
+    <value>Килограмм</value>
+  </data>
+  <data name="Ounce" xml:space="preserve">
+    <value>Унция</value>
+  </data>
+  <data name="Pound" xml:space="preserve">
+    <value>Фунт</value>
+  </data>
+  <data name="Celsius" xml:space="preserve">
+    <value>Цельсий</value>
+  </data>
+  <data name="Fahrenheit" xml:space="preserve">
+    <value>Фаренгейт</value>
+  </data>
+  <data name="Kelvin" xml:space="preserve">
+    <value>Кельвин</value>
+  </data>
+</root>
