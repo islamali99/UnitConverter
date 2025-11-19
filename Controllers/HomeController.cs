@@ -57,6 +57,12 @@ namespace UnitConverter.Controllers
         }
 
         [HttpGet]
+        public IActionResult Health()
+        {
+            return Ok(new { status = "healthy", timestamp = DateTime.UtcNow });
+        }
+
+        [HttpGet]
         public IActionResult Length()
         {
             TrackVisitor();

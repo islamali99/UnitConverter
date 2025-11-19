@@ -43,10 +43,16 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
+    // Don't use HSTS on cloud platforms like Render
+    // app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+// Don't force HTTPS redirect - let Render handle SSL
+if (app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseStaticFiles();
 
 app.UseRouting();
