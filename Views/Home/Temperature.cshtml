@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label for="FromUnit">From:</label>
                         <select id="FromUnit" name="FromUnit" required>
-                            <option value="Celsius" selected="@(Model?.FromUnit == "Celsius")">Celsius</option>
+                            <option value="Celsius" selected="@(Model?.FromUnit == "Celsius" || Model?.FromUnit == null)">Celsius</option>
                             <option value="Fahrenheit" selected="@(Model?.FromUnit == "Fahrenheit")">Fahrenheit</option>
                             <option value="Kelvin" selected="@(Model?.FromUnit == "Kelvin")">Kelvin</option>
                         </select>
@@ -39,7 +39,7 @@
                         <label for="ToUnit">To:</label>
                         <select id="ToUnit" name="ToUnit" required>
                             <option value="Celsius" selected="@(Model?.ToUnit == "Celsius")">Celsius</option>
-                            <option value="Fahrenheit" selected="@(Model?.ToUnit == "Fahrenheit")">Fahrenheit</option>
+                            <option value="Fahrenheit" selected="@(Model?.ToUnit == "Fahrenheit" || Model?.ToUnit == null)">Fahrenheit</option>
                             <option value="Kelvin" selected="@(Model?.ToUnit == "Kelvin")">Kelvin</option>
                         </select>
                     </div>

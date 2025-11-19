@@ -31,7 +31,7 @@
                         <select id="FromUnit" name="FromUnit" required>
                             <option value="milligram" selected="@(Model?.FromUnit == "milligram")">Milligram</option>
                             <option value="gram" selected="@(Model?.FromUnit == "gram")">Gram</option>
-                            <option value="kilogram" selected="@(Model?.FromUnit == "kilogram")">Kilogram</option>
+                            <option value="kilogram" selected="@(Model?.FromUnit == "kilogram" || Model?.FromUnit == null)">Kilogram</option>
                             <option value="ounce" selected="@(Model?.FromUnit == "ounce")">Ounce</option>
                             <option value="pound" selected="@(Model?.FromUnit == "pound")">Pound</option>
                         </select>
@@ -44,7 +44,7 @@
                             <option value="gram" selected="@(Model?.ToUnit == "gram")">Gram</option>
                             <option value="kilogram" selected="@(Model?.ToUnit == "kilogram")">Kilogram</option>
                             <option value="ounce" selected="@(Model?.ToUnit == "ounce")">Ounce</option>
-                            <option value="pound" selected="@(Model?.ToUnit == "pound")">Pound</option>
+                            <option value="pound" selected="@(Model?.ToUnit == "pound" || Model?.ToUnit == null)">Pound</option>
                         </select>
                     </div>
                 </div>

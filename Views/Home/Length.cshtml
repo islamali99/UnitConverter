@@ -31,7 +31,7 @@
                         <select id="FromUnit" name="FromUnit" required>
                             <option value="millimeter" selected="@(Model?.FromUnit == "millimeter")">Millimeter</option>
                             <option value="centimeter" selected="@(Model?.FromUnit == "centimeter")">Centimeter</option>
-                            <option value="meter" selected="@(Model?.FromUnit == "meter")">Meter</option>
+                            <option value="meter" selected="@(Model?.FromUnit == "meter" || Model?.FromUnit == null)">Meter</option>
                             <option value="kilometer" selected="@(Model?.FromUnit == "kilometer")">Kilometer</option>
                             <option value="inch" selected="@(Model?.FromUnit == "inch")">Inch</option>
                             <option value="foot" selected="@(Model?.FromUnit == "foot")">Foot</option>
@@ -48,7 +48,7 @@
                             <option value="meter" selected="@(Model?.ToUnit == "meter")">Meter</option>
                             <option value="kilometer" selected="@(Model?.ToUnit == "kilometer")">Kilometer</option>
                             <option value="inch" selected="@(Model?.ToUnit == "inch")">Inch</option>
-                            <option value="foot" selected="@(Model?.ToUnit == "foot")">Foot</option>
+                            <option value="foot" selected="@(Model?.ToUnit == "foot" || Model?.ToUnit == null)">Foot</option>
                             <option value="yard" selected="@(Model?.ToUnit == "yard")">Yard</option>
                             <option value="mile" selected="@(Model?.ToUnit == "mile")">Mile</option>
                         </select>
