@@ -18,7 +18,8 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
-    options.Cookie.SecurePolicy = CookieSecurePolicy.None; // Allow HTTP for Render
+    options.Cookie.SecurePolicy = CookieSecurePolicy.None;
+    options.Cookie.SameSite = SameSiteMode.Lax;
 });
 
 // Add visitor tracking service as singleton
@@ -44,20 +45,8 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 
 var app = builder.Build();
 
-// Log startup information
-var logger = app.Services.GetRequiredService<ILogger<Program>>();
-logger.LogInformation($"Starting application on port {port}");
-logger.LogInformation($"Environment: {app.Environment.EnvironmentName}");
-
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Home/Error");
-}
-else
-{
-    app.UseDeveloperExceptionPage();
-}
+// Configure the HTTP request pipeline - always show detailed errors for now
+app.UseDeveloperExceptionPage();
 
 app.UseStaticFiles();
 
@@ -75,4 +64,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+Console.WriteLine($"Application starting on http://0.0.0.0:{port}");
 app.Run();
