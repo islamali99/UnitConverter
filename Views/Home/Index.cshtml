@@ -1,3 +1,5 @@
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
     Layout = null;
 }
@@ -6,33 +8,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit Converter</title>
+    <title>@Localizer["AppTitle"]</title>
     <link rel="stylesheet" href="~/css/style.css">
 </head>
 <body>
+    <div class="visitor-counter">
+        <div class="counter-item">
+            <span class="counter-icon">👥</span>
+            <span class="counter-label">Active Users:</span>
+            <span class="counter-value" id="activeUsers">0</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-icon">👁️</span>
+            <span class="counter-label">Total Visits:</span>
+            <span class="counter-value" id="totalVisits">0</span>
+        </div>
+    </div>
+    
+    <div class="language-switcher">
+        <form asp-controller="Home" asp-action="SetLanguage" asp-route-returnUrl="@Context.Request.Path" method="post">
+            <button type="submit" name="culture" value="en" class="lang-btn">English</button>
+            <button type="submit" name="culture" value="ru" class="lang-btn">Русский</button>
+            <button type="submit" name="culture" value="uz" class="lang-btn">O'zbek</button>
+        </form>
+    </div>
+    
     <div class="container">
-        <h1>Unit Converter</h1>
-        <p class="subtitle">Convert between different units of measurement</p>
+        <h1>@Localizer["AppTitle"]</h1>
+        <p class="subtitle">@Localizer["AppSubtitle"]</p>
         
         <div class="card-grid">
             <a href="@Url.Action("Length", "Home")" class="card">
                 <div class="card-icon">📏</div>
-                <h2>Length Converter</h2>
-                <p>Convert millimeters, centimeters, meters, kilometers, inches, feet, yards, and miles</p>
+                <h2>@Localizer["LengthConverter"]</h2>
+                <p>@Localizer["LengthDescription"]</p>
             </a>
             
             <a href="@Url.Action("Weight", "Home")" class="card">
                 <div class="card-icon">⚖️</div>
-                <h2>Weight Converter</h2>
-                <p>Convert milligrams, grams, kilograms, ounces, and pounds</p>
+                <h2>@Localizer["WeightConverter"]</h2>
+                <p>@Localizer["WeightDescription"]</p>
             </a>
             
             <a href="@Url.Action("Temperature", "Home")" class="card">
                 <div class="card-icon">🌡️</div>
-                <h2>Temperature Converter</h2>
-                <p>Convert Celsius, Fahrenheit, and Kelvin</p>
+                <h2>@Localizer["TemperatureConverter"]</h2>
+                <p>@Localizer["TemperatureDescription"]</p>
             </a>
         </div>
     </div>
+    
+    <script>
+        function updateStatistics() {
+            fetch('/Home/GetStatistics')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('activeUsers').textContent = data.activeUsers;
+                    document.getElementById('totalVisits').textContent = data.totalVisits;
+                })
+                .catch(error => console.error('Error fetching statistics:', error));
+        }
+        
+        // Update statistics immediately and then every 5 seconds
+        updateStatistics();
+        setInterval(updateStatistics, 5000);
+    </script>
 </body>
 </html>

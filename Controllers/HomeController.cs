@@ -1,24 +1,72 @@
 using UnitConverter.Models;
+using UnitConverter.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Localization;
+using Microsoft.AspNetCore.Localization;
 
 namespace UnitConverter.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IStringLocalizer<HomeController> _localizer;
+        private readonly VisitorTrackingService _visitorTracking;
+
+        public HomeController(IStringLocalizer<HomeController> localizer, VisitorTrackingService visitorTracking)
+        {
+            _localizer = localizer;
+            _visitorTracking = visitorTracking;
+        }
+
+        private void TrackVisitor()
+        {
+            var sessionId = HttpContext.Session.Id;
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Visited")))
+            {
+                _visitorTracking.RecordVisit(sessionId);
+                HttpContext.Session.SetString("Visited", "true");
+            }
+            else
+            {
+                _visitorTracking.UpdateActivity(sessionId);
+            }
+        }
+
+        [HttpGet]
+        public IActionResult GetStatistics()
+        {
+            var stats = _visitorTracking.GetStatistics();
+            return Json(new { totalVisits = stats.TotalVisits, activeUsers = stats.ActiveUsers });
+        }
+
+        [HttpPost]
+        public IActionResult SetLanguage(string culture, string returnUrl)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
+            );
+
+            return LocalRedirect(returnUrl);
+        }
+
         public IActionResult Index()
         {
+            TrackVisitor();
             return View();
         }
 
         [HttpGet]
         public IActionResult Length()
         {
+            TrackVisitor();
             return View();
         }
 
         [HttpPost]
         public IActionResult Length(ConversionModel model)
         {
+            TrackVisitor();
             if (ModelState.IsValid)
             {
                 try
@@ -37,12 +85,14 @@ namespace UnitConverter.Controllers
         [HttpGet]
         public IActionResult Weight()
         {
+            TrackVisitor();
             return View();
         }
 
         [HttpPost]
         public IActionResult Weight(ConversionModel model)
         {
+            TrackVisitor();
             if (ModelState.IsValid)
             {
                 try
@@ -61,12 +111,14 @@ namespace UnitConverter.Controllers
         [HttpGet]
         public IActionResult Temperature()
         {
+            TrackVisitor();
             return View();
         }
 
         [HttpPost]
         public IActionResult Temperature(ConversionModel model)
         {
+            TrackVisitor();
             if (ModelState.IsValid)
             {
                 try

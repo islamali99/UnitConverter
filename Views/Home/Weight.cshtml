@@ -1,4 +1,6 @@
 @model UnitConverter.Models.ConversionModel
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 @{
     Layout = null;
 }
@@ -7,49 +9,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weight Converter</title>
+    <title>@Localizer["WeightConverter"]</title>
     <link rel="stylesheet" href="~/css/style.css">
 </head>
 <body>
+    <div class="visitor-counter">
+        <div class="counter-item">
+            <span class="counter-icon">👥</span>
+            <span class="counter-label">Active:</span>
+            <span class="counter-value" id="activeUsers">0</span>
+        </div>
+        <div class="counter-item">
+            <span class="counter-icon">👁️</span>
+            <span class="counter-label">Visits:</span>
+            <span class="counter-value" id="totalVisits">0</span>
+        </div>
+    </div>
+    
+    <div class="language-switcher">
+        <form asp-controller="Home" asp-action="SetLanguage" asp-route-returnUrl="@Context.Request.Path" method="post">
+            <button type="submit" name="culture" value="en" class="lang-btn">English</button>
+            <button type="submit" name="culture" value="ru" class="lang-btn">Русский</button>
+            <button type="submit" name="culture" value="uz" class="lang-btn">O'zbek</button>
+        </form>
+    </div>
+    
     <div class="container">
         <div class="header">
-            <a href="@Url.Action("Index", "Home")" class="back-link">← Back to Home</a>
-            <h1>Weight Converter</h1>
+            <a href="@Url.Action("Index", "Home")" class="back-link">@Localizer["BackToHome"]</a>
+            <h1>@Localizer["WeightConverter"]</h1>
         </div>
         
         <div class="converter-card">
             <form method="POST" action="@Url.Action("Weight", "Home")">
                 <div class="form-group">
-                    <label for="Value">Enter Value:</label>
+                    <label for="Value">@Localizer["EnterValue"]</label>
                     <input type="number" id="Value" name="Value" step="any" required 
                            value="@(Model?.Value ?? 0)">
                 </div>
                 
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="FromUnit">From:</label>
+                        <label for="FromUnit">@Localizer["From"]</label>
                         <select id="FromUnit" name="FromUnit" required>
-                            <option value="milligram" selected="@(Model?.FromUnit == "milligram")">Milligram</option>
-                            <option value="gram" selected="@(Model?.FromUnit == "gram")">Gram</option>
-                            <option value="kilogram" selected="@(Model?.FromUnit == "kilogram" || Model?.FromUnit == null)">Kilogram</option>
-                            <option value="ounce" selected="@(Model?.FromUnit == "ounce")">Ounce</option>
-                            <option value="pound" selected="@(Model?.FromUnit == "pound")">Pound</option>
+                            <option value="milligram" selected="@(Model?.FromUnit == "milligram")">@Localizer["Milligram"]</option>
+                            <option value="gram" selected="@(Model?.FromUnit == "gram")">@Localizer["Gram"]</option>
+                            <option value="kilogram" selected="@(Model?.FromUnit == "kilogram" || Model?.FromUnit == null)">@Localizer["Kilogram"]</option>
+                            <option value="ounce" selected="@(Model?.FromUnit == "ounce")">@Localizer["Ounce"]</option>
+                            <option value="pound" selected="@(Model?.FromUnit == "pound")">@Localizer["Pound"]</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="ToUnit">To:</label>
+                        <label for="ToUnit">@Localizer["To"]</label>
                         <select id="ToUnit" name="ToUnit" required>
-                            <option value="milligram" selected="@(Model?.ToUnit == "milligram")">Milligram</option>
-                            <option value="gram" selected="@(Model?.ToUnit == "gram")">Gram</option>
-                            <option value="kilogram" selected="@(Model?.ToUnit == "kilogram")">Kilogram</option>
-                            <option value="ounce" selected="@(Model?.ToUnit == "ounce")">Ounce</option>
-                            <option value="pound" selected="@(Model?.ToUnit == "pound" || Model?.ToUnit == null)">Pound</option>
+                            <option value="milligram" selected="@(Model?.ToUnit == "milligram")">@Localizer["Milligram"]</option>
+                            <option value="gram" selected="@(Model?.ToUnit == "gram")">@Localizer["Gram"]</option>
+                            <option value="kilogram" selected="@(Model?.ToUnit == "kilogram")">@Localizer["Kilogram"]</option>
+                            <option value="ounce" selected="@(Model?.ToUnit == "ounce")">@Localizer["Ounce"]</option>
+                            <option value="pound" selected="@(Model?.ToUnit == "pound" || Model?.ToUnit == null)">@Localizer["Pound"]</option>
                         </select>
                     </div>
                 </div>
                 
-                <button type="submit" class="btn">Convert</button>
+                <button type="submit" class="btn">@Localizer["Convert"]</button>
             </form>
             
             @if (Model?.ShowResult == true)
@@ -70,5 +93,19 @@
             }
         </div>
     </div>
+    
+    <script>
+        function updateStatistics() {
+            fetch('/Home/GetStatistics')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('activeUsers').textContent = data.activeUsers;
+                    document.getElementById('totalVisits').textContent = data.totalVisits;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+        updateStatistics();
+        setInterval(updateStatistics, 5000);
+    </script>
 </body>
 </html>
