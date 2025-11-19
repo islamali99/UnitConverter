@@ -1,0 +1,38 @@
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Unit Converter</h1>
+        <p class="subtitle">Convert between different units of measurement</p>
+        
+        <div class="card-grid">
+            <a href="@Url.Action("Length", "Home")" class="card">
+                <div class="card-icon">📏</div>
+                <h2>Length Converter</h2>
+                <p>Convert millimeters, centimeters, meters, kilometers, inches, feet, yards, and miles</p>
+            </a>
+            
+            <a href="@Url.Action("Weight", "Home")" class="card">
+                <div class="card-icon">⚖️</div>
+                <h2>Weight Converter</h2>
+                <p>Convert milligrams, grams, kilograms, ounces, and pounds</p>
+            </a>
+            
+            <a href="@Url.Action("Temperature", "Home")" class="card">
+                <div class="card-icon">🌡️</div>
+                <h2>Temperature Converter</h2>
+                <p>Convert Celsius, Fahrenheit, and Kelvin</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

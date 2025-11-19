@@ -1,0 +1,80 @@
+@model UnitConverter.Models.ConversionModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Length Converter</title>
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="@Url.Action("Index", "Home")" class="back-link">← Back to Home</a>
+            <h1>Length Converter</h1>
+        </div>
+        
+        <div class="converter-card">
+            <form method="POST" action="@Url.Action("Length", "Home")">
+                <div class="form-group">
+                    <label for="Value">Enter Value:</label>
+                    <input type="number" id="Value" name="Value" step="any" required 
+                           value="@(Model?.Value ?? 0)">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="FromUnit">From:</label>
+                        <select id="FromUnit" name="FromUnit" required>
+                            <option value="millimeter" selected="@(Model?.FromUnit == "millimeter")">Millimeter</option>
+                            <option value="centimeter" selected="@(Model?.FromUnit == "centimeter")">Centimeter</option>
+                            <option value="meter" selected="@(Model?.FromUnit == "meter")">Meter</option>
+                            <option value="kilometer" selected="@(Model?.FromUnit == "kilometer")">Kilometer</option>
+                            <option value="inch" selected="@(Model?.FromUnit == "inch")">Inch</option>
+                            <option value="foot" selected="@(Model?.FromUnit == "foot")">Foot</option>
+                            <option value="yard" selected="@(Model?.FromUnit == "yard")">Yard</option>
+                            <option value="mile" selected="@(Model?.FromUnit == "mile")">Mile</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ToUnit">To:</label>
+                        <select id="ToUnit" name="ToUnit" required>
+                            <option value="millimeter" selected="@(Model?.ToUnit == "millimeter")">Millimeter</option>
+                            <option value="centimeter" selected="@(Model?.ToUnit == "centimeter")">Centimeter</option>
+                            <option value="meter" selected="@(Model?.ToUnit == "meter")">Meter</option>
+                            <option value="kilometer" selected="@(Model?.ToUnit == "kilometer")">Kilometer</option>
+                            <option value="inch" selected="@(Model?.ToUnit == "inch")">Inch</option>
+                            <option value="foot" selected="@(Model?.ToUnit == "foot")">Foot</option>
+                            <option value="yard" selected="@(Model?.ToUnit == "yard")">Yard</option>
+                            <option value="mile" selected="@(Model?.ToUnit == "mile")">Mile</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Convert</button>
+            </form>
+            
+            @if (Model?.ShowResult == true)
+            {
+                <div class="result">
+                    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                    {
+                        <p class="error">@Model.ErrorMessage</p>
+                    }
+                    else
+                    {
+                        <p class="result-text">
+                            <span class="result-value">@Model.Value</span> @Model.FromUnit = 
+                            <span class="result-value">@Model.Result.ToString("F6")</span> @Model.ToUnit
+                        </p>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
