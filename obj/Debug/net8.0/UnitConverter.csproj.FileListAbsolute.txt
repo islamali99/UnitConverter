@@ -26,3 +26,17 @@
 /Users/mac/UnitConverter/obj/Debug/net8.0/UnitConverter.pdb
 /Users/mac/UnitConverter/obj/Debug/net8.0/UnitConverter.genruntimeconfig.cache
 /Users/mac/UnitConverter/obj/Debug/net8.0/ref/UnitConverter.dll
+/Users/mac/UnitConverter/bin/Debug/net8.0/en/UnitConverter.resources.dll
+/Users/mac/UnitConverter/bin/Debug/net8.0/ru/UnitConverter.resources.dll
+/Users/mac/UnitConverter/bin/Debug/net8.0/uz/UnitConverter.resources.dll
+/Users/mac/UnitConverter/obj/Debug/net8.0/UnitConverter.Resources.Controllers.HomeController.en.resources
+/Users/mac/UnitConverter/obj/Debug/net8.0/UnitConverter.Resources.Controllers.HomeController.ru.resources
+/Users/mac/UnitConverter/obj/Debug/net8.0/UnitConverter.Resources.Controllers.HomeController.uz.resources
+/Users/mac/UnitConverter/obj/Debug/net8.0/UnitConverter.csproj.GenerateResource.cache
+/Users/mac/UnitConverter/obj/Debug/net8.0/UnitConverter.sourcelink.json
+/Users/mac/UnitConverter/obj/Debug/net8.0/en/UnitConverter.resources.cs
+/Users/mac/UnitConverter/obj/Debug/net8.0/en/UnitConverter.resources.dll
+/Users/mac/UnitConverter/obj/Debug/net8.0/ru/UnitConverter.resources.cs
+/Users/mac/UnitConverter/obj/Debug/net8.0/ru/UnitConverter.resources.dll
+/Users/mac/UnitConverter/obj/Debug/net8.0/uz/UnitConverter.resources.cs
+/Users/mac/UnitConverter/obj/Debug/net8.0/uz/UnitConverter.resources.dll

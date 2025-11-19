@@ -18,6 +18,7 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
+    options.Cookie.SecurePolicy = CookieSecurePolicy.None; // Allow HTTP for Render
 });
 
 // Add visitor tracking service as singleton
@@ -43,10 +44,19 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 
 var app = builder.Build();
 
+// Log startup information
+var logger = app.Services.GetRequiredService<ILogger<Program>>();
+logger.LogInformation($"Starting application on port {port}");
+logger.LogInformation($"Environment: {app.Environment.EnvironmentName}");
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+}
+else
+{
+    app.UseDeveloperExceptionPage();
 }
 
 app.UseStaticFiles();
