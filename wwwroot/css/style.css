@@ -134,6 +134,7 @@ body::before {
     max-width: 1400px;
     margin: 0 auto;
     padding: 40px 20px;
+    padding-top: 100px; /* Add space for fixed visitor counter */
     position: relative;
     z-index: 1;
 }
@@ -495,11 +496,20 @@ h1 {
     .counter-item {
         font-size: 0.85rem;
     }
+    
+    .container {
+        padding-top: 20px; /* Reduce top padding on mobile since counter is relative */
+    }
+    
+    .back-link {
+        margin-top: 10px; /* Add margin when counter is relative positioned */
+    }
 }
 
 @media (max-width: 480px) {
     .container {
         padding: 20px 15px;
+        padding-top: 20px; /* Adjust for mobile */
     }
     
     h1 {
@@ -516,5 +526,11 @@ h1 {
         right: 0;
         margin: 0 auto 20px;
         width: fit-content;
+    }
+    
+    .back-link {
+        margin-top: 10px;
+        font-size: 0.95rem;
+        padding: 8px 16px;
     }
 }
