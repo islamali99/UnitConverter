@@ -15,11 +15,10 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build /app .
 
-# Expose port
+# Expose port (Render will set PORT env variable)
 EXPOSE 8080
 
-# Set environment variables
-ENV ASPNETCORE_URLS=http://+:8080
+# Don't set ASPNETCORE_URLS here - let Program.cs handle it via PORT env variable
 ENV ASPNETCORE_ENVIRONMENT=Production
 
 ENTRYPOINT ["dotnet", "UnitConverter.dll"]

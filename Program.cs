@@ -4,6 +4,13 @@ using UnitConverter.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure Kestrel to listen on the PORT environment variable (Render requirement)
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.ConfigureKestrel(serverOptions =>
+{
+    serverOptions.ListenAnyIP(int.Parse(port));
+});
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -43,14 +50,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // Don't use HSTS on cloud platforms like Render
-    // app.UseHsts();
-}
-
-// Don't force HTTPS redirect - let Render handle SSL
-if (app.Environment.IsDevelopment())
-{
-    app.UseHttpsRedirection();
 }
 
 app.UseStaticFiles();
