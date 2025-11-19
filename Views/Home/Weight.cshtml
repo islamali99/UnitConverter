@@ -27,7 +27,8 @@
     </div>
     
     <div class="language-switcher">
-        <form asp-controller="Home" asp-action="SetLanguage" asp-route-returnUrl="@Context.Request.Path" method="post">
+        <form asp-controller="Home" asp-action="SetLanguage" method="post">
+            <input type="hidden" name="returnUrl" value="@Context.Request.Path" />
             <button type="submit" name="culture" value="en" class="lang-btn">English</button>
             <button type="submit" name="culture" value="ru" class="lang-btn">Русский</button>
             <button type="submit" name="culture" value="uz" class="lang-btn">O'zbek</button>
